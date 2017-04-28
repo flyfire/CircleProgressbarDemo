@@ -15,10 +15,10 @@
         android:gravity="center"
         tools:context="com.solarexsoft.circleprogressbardemo.MainActivity">
         <com.solarexsoft.circleprogressbar.ArcProgressbar
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             app:arc_bottom_text="STORAGE"
-            app:arc_bottom_text_size="30sp"
+            app:arc_bottom_text_size="14sp"
             app:arc_finished_color="@android:color/holo_red_dark"
             app:arc_progress="40"
             app:arc_unfinished_color="@android:color/holo_blue_bright"
@@ -38,24 +38,8 @@
             app:unitSize="15sp"
             app:value="10000"
             app:valueSize="30sp"
-
             app:arcColors="@array/colors"/>
-        <com.solarexsoft.circleprogressbar.CircleProgressbar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:animTime="1000"
-            app:antiAlias="true"
-            app:bgArcColor="@color/colorAccent"
-            app:hint="截止目前你跑了"
-            app:hintSize="15sp"
-            app:maxValue="10000"
-            app:startAngle="135"
-            app:sweepAngle="270"
-            app:unit="步"
-            app:unitSize="15sp"
-            app:value="10000"
-            app:valueSize="30sp"
-            app:arcColors="@color/colorPrimaryDark"/>
+
 
     </LinearLayout>
 </ScrollView>

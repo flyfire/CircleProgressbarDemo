@@ -63,9 +63,10 @@
         <attr name="arcColors" />
         <attr name="bgArcColor" />
         <attr name="bgArcWidth" format="dimension" />
+        <attr name="percent" format="float"/>
     </declare-styleable>
 
-    <declare-styleable name="DialProgress">
+    <declare-styleable name="DialProgressbar">
         <attr name="antiAlias" />
         <attr name="startAngle" />
         <attr name="sweepAngle" />
@@ -90,7 +91,7 @@
         <attr name="dialColor" format="color|reference" />
     </declare-styleable>
 
-    <declare-styleable name="WaveProgress">
+    <declare-styleable name="WaveProgressbar">
         <attr name="antiAlias" />
         <attr name="darkWaveAnimTime" format="integer" />
         <attr name="lightWaveAnimTime" format="integer" />

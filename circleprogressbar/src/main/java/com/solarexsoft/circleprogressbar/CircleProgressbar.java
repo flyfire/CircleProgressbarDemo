@@ -138,7 +138,7 @@ public class CircleProgressbar extends View {
         mTextOffsetPercentInRadius = typedArray.getFloat(R.styleable
                 .CircleProgressbar_textOffsetPercentInRadius, 0.33f);
 
-        //mPercent = typedArray.getFloat(R.styleable.CircleProgressbar_percent, 0);
+        mPercent = typedArray.getFloat(R.styleable.CircleProgressbar_percent, 0.8f);
         mAnimTime = typedArray.getInt(R.styleable.CircleProgressbar_animTime, Constant
                 .DEFAULT_ANIM_TIME);
 
@@ -274,8 +274,9 @@ public class CircleProgressbar extends View {
         canvas.save();
         float currentAngle = mSweepAngle * mPercent;
         canvas.rotate(mStartAngle, mCenterPoint.x, mCenterPoint.y);
-        canvas.drawArc(mRectF, 0, mSweepAngle, false, mBgArcPaint);
-        canvas.drawArc(mRectF, 0, currentAngle, false, mArcPaint);
+        canvas.drawArc(mRectF, currentAngle, mSweepAngle-currentAngle+2, false, mBgArcPaint);
+        canvas.drawArc(mRectF, 2, currentAngle, false, mArcPaint);
+        canvas.restore();
     }
 
     public boolean isAntiAlias() {
