@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         tools:context="com.solarexsoft.circleprogressbardemo.MainActivity">
         <com.solarexsoft.circleprogressbar.ArcProgressbar
             android:layout_width="300dp"
@@ -22,6 +23,39 @@
             app:arc_progress="40"
             app:arc_unfinished_color="@android:color/holo_blue_bright"
             />
+        <com.solarexsoft.circleprogressbar.CircleProgressbar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:animTime="1000"
+            app:antiAlias="true"
+            app:bgArcColor="@color/colorAccent"
+            app:hint="今天您一共走了"
+            app:hintSize="15sp"
+            app:maxValue="10000"
+            app:startAngle="135"
+            app:sweepAngle="270"
+            app:unit="步"
+            app:unitSize="15sp"
+            app:value="10000"
+            app:valueSize="30sp"
+
+            app:arcColors="@array/colors"/>
+        <com.solarexsoft.circleprogressbar.CircleProgressbar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:animTime="1000"
+            app:antiAlias="true"
+            app:bgArcColor="@color/colorAccent"
+            app:hint="截止目前你跑了"
+            app:hintSize="15sp"
+            app:maxValue="10000"
+            app:startAngle="135"
+            app:sweepAngle="270"
+            app:unit="步"
+            app:unitSize="15sp"
+            app:value="10000"
+            app:valueSize="30sp"
+            app:arcColors="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 </ScrollView>

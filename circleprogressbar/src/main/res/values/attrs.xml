@@ -18,4 +18,101 @@
         <attr name="arc_bottom_text" format="string"/>
         <attr name="arc_bottom_text_size" format="dimension"/>
     </declare-styleable>
+
+    <attr name="antiAlias" format="boolean"/>
+    <attr name="startAngle" format="float"/>
+    <attr name="sweepAngle" format="float" />
+    <attr name="animTime" format="integer" />
+    <attr name="maxValue" format="float" />
+    <attr name="value" format="float" />
+    <attr name="unit" format="string|reference" />
+    <attr name="unitSize" format="dimension" />
+    <attr name="unitColor" format="color|reference" />
+    <attr name="hint" format="string|reference" />
+    <attr name="hintSize" format="dimension" />
+    <attr name="hintColor" format="color|reference" />
+    <attr name="precision" format="integer" />
+    <attr name="valueSize" format="dimension" />
+    <attr name="valueColor" format="color|reference" />
+    <attr name="arcColor1" format="color|reference" />
+    <attr name="arcColor2" format="color|reference" />
+    <attr name="arcColor3" format="color|reference" />
+    <attr name="bgArcColor" format="color|reference" />
+    <attr name="arcWidth" format="dimension" />
+    <attr name="arcColors" format="color|reference" />
+    <attr name="textOffsetPercentInRadius" format="float" />
+
+    <declare-styleable name="CircleProgressbar">
+        <attr name="antiAlias" />
+        <attr name="startAngle" />
+        <attr name="sweepAngle" />
+        <attr name="animTime" />
+        <attr name="maxValue" />
+        <attr name="value" />
+        <attr name="precision" />
+        <attr name="valueSize" />
+        <attr name="valueColor" />
+        <attr name="textOffsetPercentInRadius" />
+        <attr name="hint" />
+        <attr name="hintSize" />
+        <attr name="hintColor" />
+        <attr name="unit" />
+        <attr name="unitSize" />
+        <attr name="unitColor" />
+        <attr name="arcWidth" />
+        <attr name="arcColors" />
+        <attr name="bgArcColor" />
+        <attr name="bgArcWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="DialProgress">
+        <attr name="antiAlias" />
+        <attr name="startAngle" />
+        <attr name="sweepAngle" />
+        <attr name="animTime" />
+        <attr name="maxValue" />
+        <attr name="value" />
+        <attr name="precision" />
+        <attr name="valueSize" />
+        <attr name="valueColor" />
+        <attr name="textOffsetPercentInRadius" />
+        <attr name="unit" />
+        <attr name="unitSize" />
+        <attr name="unitColor" />
+        <attr name="hint" />
+        <attr name="hintSize" />
+        <attr name="hintColor" />
+        <attr name="arcWidth" />
+        <attr name="dialWidth" format="dimension|reference" />
+        <attr name="dialIntervalDegree" format="integer" />
+        <attr name="arcColors" />
+        <attr name="bgArcColor" />
+        <attr name="dialColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveProgress">
+        <attr name="antiAlias" />
+        <attr name="darkWaveAnimTime" format="integer" />
+        <attr name="lightWaveAnimTime" format="integer" />
+        <attr name="maxValue" />
+        <attr name="value" />
+        <attr name="valueColor" />
+        <attr name="valueSize" />
+        <attr name="hint" />
+        <attr name="hintSize" />
+        <attr name="hintColor" />
+        <attr name="circleWidth" format="dimension" />
+        <attr name="circleColor" format="color|reference" />
+        <attr name="bgCircleColor" format="color|reference" />
+        <attr name="lockWave" format="boolean" />
+        <attr name="waveNum" format="integer" />
+        <attr name="waveHeight" format="dimension" />
+        <attr name="darkWaveColor" format="color|reference" />
+        <attr name="showLightWave" format="boolean" />
+        <attr name="lightWaveColor" format="color|reference" />
+        <attr name="lightWaveDirect" format="enum">
+            <enum name="L2R" value="0" />
+            <enum name="R2L" value="1" />
+        </attr>
+    </declare-styleable>
 </resources>
