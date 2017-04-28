@@ -14,8 +14,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 
-import static android.os.Build.VERSION_CODES.M;
-
 /**
  * Created by houruhou on 23/04/2017.
  */
@@ -141,6 +139,14 @@ public class ArcProgressbar extends View {
         mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
+    public float getSuffixTextPadding() {
+        return mSuffixTextPadding;
+    }
+
+    public void setSuffixTextPadding(float suffixTextPadding) {
+        mSuffixTextPadding = suffixTextPadding;
+    }
+
     public float getStrokeWidth() {
         return mStrokeWidth;
     }
@@ -194,7 +200,11 @@ public class ArcProgressbar extends View {
     }
 
     public void setProgress(int progress) {
-        mProgress = progress;
+        this.mProgress = progress;
+        if (progress > getMax()) {
+            this.mProgress = progress % getMax();
+        }
+        invalidate();
     }
 
     public int getMax() {
@@ -202,7 +212,10 @@ public class ArcProgressbar extends View {
     }
 
     public void setMax(int max) {
-        mMax = max;
+        if (max > 0) {
+            mMax = max;
+            invalidate();
+        }
     }
 
     public int getFinishedStrokeColor() {
@@ -283,11 +296,86 @@ public class ArcProgressbar extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        mRectF.set(mStrokeWidth / 2f, mStrokeWidth / 2f, width - mStrokeWidth / 2f, MeasureSpec
+                .getSize(heightMeasureSpec) - mStrokeWidth / 2);
+        float radius = width / 2f;
+        float angle = (360 - mArcAngle) / 2f;
+        mArcBottomHeight = radius*(float)(1 - Math.cos(angle/180*Math.PI));
 
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        float startAngle = 270 - mArcAngle/2f;
+        float finishedSweepAngle = mProgress/(float)getMax()*mArcAngle;
+        float finishedStartAngle = startAngle;
+        if (mProgress == 0){
+            finishedStartAngle = 0.01f;
+        }
+        mPaint.setColor(mUnfinishedStrokeColor);
+        canvas.drawArc(mRectF, startAngle, mArcAngle, false, mPaint);
+        mPaint.setColor(mFinishedStrokeColor);
+        canvas.drawArc(mRectF, finishedStartAngle, finishedSweepAngle, false, mPaint);
+        String text = String.valueOf(getProgress());
+        if (!TextUtils.isEmpty(text)){
+            mTextPaint.setColor(mTextColor);
+            mTextPaint.setTextSize(mTextSize);
+            float textHeight = mTextPaint.descent() + mTextPaint.ascent();
+            float textBaseline = (getHeight() - textHeight) / 2.0f;
+            canvas.drawText(text, (getWidth() - mTextPaint.measureText(text))/2.0f, textBaseline, mTextPaint);
+            mTextPaint.setTextSize(mSuffixTextSize);
+            float suffixHeight = mTextPaint.descent() + mTextPaint.ascent();
+            canvas.drawText(mSuffixText, getWidth()/2.0f + mTextPaint.measureText(text) + mSuffixTextPadding, textBaseline+textHeight-suffixHeight, mTextPaint);
+        }
+
+        if (mArcBottomHeight == 0){
+            float radius = getWidth()/2f;
+            float angle = (360 - mArcAngle)/2f;
+            mArcBottomHeight = radius*(float)(1 - Math.cos(angle/180*Math.PI));
+        }
+
+        if (!TextUtils.isEmpty(getBottomText())){
+            mTextPaint.setTextSize(mBottomTextSize);
+            float bottomTextBaseline = getHeight()-mArcBottomHeight-(mTextPaint.descent()+mTextPaint.ascent())/2;
+            canvas.drawText(getBottomText(), (getWidth()-mTextPaint.measureText(getBottomText()))/2.0f, bottomTextBaseline, mTextPaint);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
