@@ -15,10 +15,10 @@
         android:gravity="center"
         tools:context="com.solarexsoft.circleprogressbardemo.MainActivity">
         <com.solarexsoft.circleprogressbar.ArcProgressbar
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:arc_bottom_text="STORAGE"
-            app:arc_bottom_text_size="14sp"
+            app:arc_bottom_text_size="16sp"
             app:arc_finished_color="@android:color/holo_red_dark"
             app:arc_progress="40"
             app:arc_unfinished_color="@android:color/holo_blue_bright"
@@ -39,7 +39,21 @@
             app:value="10000"
             app:valueSize="30sp"
             app:arcColors="@array/colors"/>
-
+        <com.solarexsoft.circleprogressbar.DialProgressbar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:animTime="1000"
+            app:hint="当前车速"
+            app:hintSize="15sp"
+            app:value="160"
+            app:valueSize="30sp"
+            app:maxValue="300"
+            app:unit="KM/H"
+            app:unitSize="15sp"
+            app:bgArcColor="@android:color/background_dark"
+            app:arcColors="@array/colors"
+            app:startAngle="144"
+            app:sweepAngle="252"/>
 
     </LinearLayout>
 </ScrollView>

@@ -329,6 +329,7 @@ public class CircleProgressbar extends View {
 
     public void setGradientColors(int[] gradientColors) {
         mGradientColors = gradientColors;
+        updateArcPaint();
     }
 
     public long getAnimTime() {
