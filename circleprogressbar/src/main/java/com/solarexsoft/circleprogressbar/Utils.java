@@ -40,8 +40,22 @@ public class Utils {
         return result;
     }
 
-    public static float measureTextHeight(Paint paint) {
-        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        return (fontMetrics.descent - fontMetrics.ascent);
+    public static <T> T[] reverse(T[] arrays) {
+        if (arrays == null){
+            return null;
+        }
+        int length = arrays.length;
+        for (int i = 0; i < length/2; i++) {
+            T t = arrays[i];
+            arrays[i] = arrays[length-i-1];
+            arrays[length-i-1] = t;
+        }
+        return arrays;
+    }
+
+    public static float measureTextHeight(Paint valuePaint) {
+        Paint.FontMetrics fontMetrics = valuePaint.getFontMetrics();
+        float result = fontMetrics.descent - fontMetrics.ascent;
+        return result;
     }
 }
