@@ -61,4 +61,5 @@ Usage:
 
 More attributes see [attrs.xml](https://github.com/flyfire/CircleProgressbarDemo/blob/master/circleprogressbar/src/main/res/values/attrs.xml)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PJH8Fy2ppiA" frameborder="0" allowfullscreen></iframe>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=PJH8Fy2ppiA
+" target="_blank"><img src="http://img.youtube.com/vi/PJH8Fy2ppiA/0.jpg" width="560" height="315" border="10" /></a>
