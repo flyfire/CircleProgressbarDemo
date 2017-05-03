@@ -14,6 +14,17 @@
         android:orientation="vertical"
         android:gravity="center"
         tools:context="com.solarexsoft.circleprogressbardemo.MainActivity">
+        <com.solarexsoft.circleprogressbar.WaveProgressbar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:antiAlias="true"
+            app:circleColor="@android:color/holo_blue_bright"
+            app:bgCircleColor="@android:color/darker_gray"
+            app:hint="剩余流量"
+            app:hintSize="15sp"
+            app:value="70"
+            app:valueSize="30sp"
+            />
         <com.solarexsoft.circleprogressbar.ArcProgressbar
             android:layout_width="160dp"
             android:layout_height="160dp"
@@ -54,15 +65,6 @@
             app:arcColors="@array/colors"
             app:startAngle="144"
             app:sweepAngle="252"/>
-        <com.solarexsoft.circleprogressbar.WaveProgressbar
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            app:antiAlias="true"
-            app:circleColor="@color/colorPrimary"
-            app:bgCircleColor="@color/colorAccent"
-            app:hint="剩余流量"
-            app:value="10"
-            />
 
     </LinearLayout>
 </ScrollView>
