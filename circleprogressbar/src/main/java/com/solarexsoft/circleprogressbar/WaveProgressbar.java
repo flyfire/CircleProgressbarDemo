@@ -234,6 +234,15 @@ public class WaveProgressbar extends View {
             points[i] = new Point((isR2L ? 2 : 1) * points[mHalfPointCount].x - points[reverse].x,
                     points[mHalfPointCount].y * 2 - points[reverse].y);
         }
+//        points[0] = new Point((int) (-waveWidth+mDarkWaveOffset),(int)(mCenterPoint.y+mRadius-2*mPercent*mRadius));
+//        points[1] = new Point((int)waveWidth/8, (int)(-mWaveHeight));
+//        points[2] = new Point((int)waveWidth/4, 0);
+//        points[3] = new Point((int)waveWidth/8, (int)mWaveHeight);
+//        points[4] = new Point((int)waveWidth/4,0);
+//        points[5] = new Point((int)waveWidth/8, (int)(-mWaveHeight));
+//        points[6] = new Point((int)waveWidth/4, 0);
+//        points[7] = new Point((int)waveWidth/8, (int)mWaveHeight);
+//        points[8] = new Point((int)waveWidth/4, 0);
         return isR2L ? Utils.reverse(points) : points;
     }
 
@@ -396,6 +405,7 @@ public class WaveProgressbar extends View {
         mWaveLimitPath.reset();
         mWavePath.reset();
         float height = lockWave ? 0 : mRadius - 2 * mRadius * mPercent;
+        mWavePath.moveTo(points[0].x+waveOffset, points[0].y+height);
         for (int i = 1; i < mAllPointCount; i += 2) {
             mWavePath.quadTo(points[i].x + waveOffset, points[i].y + height,
                     points[i + 1].x + waveOffset, points[i + 1].y + height);
@@ -403,6 +413,13 @@ public class WaveProgressbar extends View {
         mWavePath.lineTo(points[mAllPointCount - 1].x, points[mAllPointCount - 1].y + height);
         mWavePath.lineTo(points[mAllPointCount - 1].x, mCenterPoint.y + mRadius);
         mWavePath.lineTo(points[0].x, mCenterPoint.y + mRadius);
+//        mWavePath.moveTo(points[0].x, points[0].y);
+//        for (int i = 1; i <= 8; i+=2) {
+//            mWavePath.rQuadTo(points[i].x, points[i].y, points[i+1].x, points[i+1].y);
+//        }
+        mWavePath.lineTo(getMeasuredWidth(), getMeasuredHeight());
+        mWavePath.lineTo(0, getMeasuredHeight());
+        mWavePath.close();
         mWavePath.close();
         mWaveLimitPath.addCircle(mCenterPoint.x, mCenterPoint.y, mRadius, Path.Direction.CW);
         mWaveLimitPath.op(mWavePath, Path.Op.INTERSECT);
